@@ -19,24 +19,27 @@ public class SpringConfig {
 
     private EntityManager em;
 
+    private final MemberRepository memberRepository;
+
     @Autowired
-    public SpringConfig(EntityManager em){
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
     }
 //    @Autowired
 //    public SpringConfig(DataSource dataSource) {
 //        this.dataSource = dataSource;
 //    }
 
-//    @Bean
-//    public MemberService memberService() {
-//        return new MemberService(memberRepository());
-//    }
-
     @Bean
-    public MemberRepository memberRepository() {
-        //return new MemoryMemberRepository();
-        return new JpaMemberRepository(em);
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
     }
+
+//    @Bean
+//    public MemberRepository memberRepository() {
+//        //return new MemoryMemberRepository();
+//        //return new JpaMemberRepository(em);
+//
+//    }
 }
 
