@@ -26,7 +26,7 @@ public class MemberServiceIntegrationTest {
     void join() {
         //given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("hello1");
 
         //when
         Long saveId = memberService.join(member);
@@ -40,10 +40,10 @@ public class MemberServiceIntegrationTest {
     public void 중복_회원_예외() {
         //given
         Member member1 = new Member();
-        member1.setName("spring");
+        member1.setName("spring5");
 
         Member member2 = new Member();
-        member2.setName("spring");
+        member2.setName("spring5");
 
         //when
         memberService.join(member1);
